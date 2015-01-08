@@ -1,0 +1,43 @@
+HOST *
+  User=enoriega
+
+Host tunnel1
+  HostName tunnel1.sista.arizona.edu
+
+Host lectura
+  HostName lectura.cs.arizona.edu
+
+Host tecolote
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+Host dante
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+Host sumukan
+  ProxyCommand ssh -q -W %h:%p tunnel1
+  LocalForward 5999 sumukan:5900
+
+Host presto
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+Host dalek
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+Host v01
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+Host fusion
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+Host river
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+
+HOST jen
+  ProxyCommand ssh -q tunnel2.sista.arizona.edu -W 10.192.92.52:22
+  LocalForward 8081 localhost:8080
+
+HOST b4
+  ProxyCommand ssh -q -W %h:%p tunnel1
+
+ForwardAgent yes
